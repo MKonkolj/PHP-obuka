@@ -1,0 +1,149 @@
+
+Testiranje: PHP i SQL
+1. Podesiti naslov dokumenta. Naslov je “Testiranje”.
+    ● Pod naslovom dokumenta misli se na <title> tag.
+    ● Koristiti echo instrukciju.
+2. Ispisati <h1> element na stranici, sa sledećim sadržajem: “Testiranje je počelo.”
+    ● Koristiti echo instrukciju.
+3. Napiši PHP program koji zamenjuje vrednosti dve promenljive.
+    ● x = 5
+    ● y = 10
+4. Napiši PHP program za izračunavanje sume dve celobrojne vrednosti. Ukoliko su dve vrednosti iste,
+    program vraća njihov trostruki zbir.
+5. Napiši PHP program koji ispisuje na stranici true, ukoliko je jedna od dve celobrojne vrednosti broj 30,
+ili ako im je suma 30 u suprotnom program ispisuje false.
+    ● ulaz: 30, 0
+     ○ izlaz: true
+    ● ulaz: 25, 5
+      ○ izlaz: true
+    ● ulaz: 20, 30
+      ○ izlaz: true
+    ● ulaz: 20, 25
+      ○ izlaz: false
+6. Napisati PHP program koji će proveriti da li je jedna od dve celobrojne vrednosti manja od 0, a druga
+    veća od 100.
+7. Napisati PHP program koji će proveriti da li je jedna od dve celobrojne vrednosti u opsegu između 100 i
+    200. (ukljucujuci 100 i 200) Ukoliko jeste program vraca true, a ukoliko nije program vraca false.
+8. Napisati PHP program koji određuje najveci broj između tri celobrojne vrednosti i ispisati ga na
+    stranicu.
+        ● Nije dozvoljeno korišćenje bilo koje ugrađjene funkcije za određivanje najvećeg broja.
+9. Napisati PHP program koji će proveriti koja od dve celobrojne vrednosti je bliža broju 100 i ispisati je.
+    Ukoliko su brojevi jednaki, ispisati 0.
+10. Napisati PHP program koji će ispisati na strinici true ukoliko su obe celobrojne vrednosti u opsegu
+    izmedju 40 i 50 (ukljucujuci 40 i 50), ili su obe vrednosti u opsegu između 50 i 60 (ukljucujuci 50 i 60), u
+    suprotnom false.
+11. Napisati PHP program koji će proveriti da li dva nenegativna broja imaju istu poslednju cifru. Ukoliko
+    imaju, ispisati true na strinici, u suptornom false.
+12. Definisati jednu promenljivu koja je tipa string. Napisati PHP program koji će:
+    ● Pretvoriti sve karaktere stringa u velika slova.
+    ● Pretvoriti sve karaktere stringa u mala slova.
+    ● Pretvoriti prvi karakter stringa u veliko slovo.
+    ● Pretvoriti prvi karakter svake reči u veliko slovo.
+13. Napisati PHP program koji će proveriti da li string1 sadrži u sebi string2. Ukoliko sadrži ispisati:
+    “Reč je prisutna.”, u suprotnom “Reč nije prisutna.”
+        ● string1 - PHP je najbolji programski jezik i volim da pišem PHP programe.
+        ● string2 - PHP
+14. Napisati PHP program koji briše sve 0 sa početka datog stringa.
+    ● string - 000547023.24
+15. Napisati PHP program koji će obrisati deo stringa.
+    ● string: PHP je najbolji programsi jezik i volim da pišem PHP programe.
+    ● string koji se brise: PHP
+    ● ispisati na stranici tako izmenjeni string
+16. Definisati numericki niz. (statički) Vrednosti niza su brojevi od 1 do 5. Ispisati poslednji element niza.
+17. Definisati asocijativni niz. (statički) Niz sadrži podatke o vama. Ime, prezime, grad u kome živite na
+sledeći način.
+    ● Primer:
+        ○ indeks ime, vrednost Petar
+        ○ indeks prezime, vrednost Petrovic
+        ○ indeks grad, vrednost Beograd
+Ispisati podatke niza na sledeći naćin:
+    Ime: Petar
+    Prezime: Petrovic
+    Grad: Beograd
+18. Za predefinisane brojeve n i a napisati kod koji sve brojeve od 1 do n koji su deljivi sa a
+    smešta u numerički niz i prikazuje ga na stranici.
+19. Kreirati numerički niz gde je svaki element novi asocijativni niz sa podacima o zaposlenima. Podaci u
+    nizu su (0) ime i prezime, (1) mesto zaposlenja, (2) lokacija gde živi i (3) zarada. Niz treba da ima bar pet
+zaposlenih.
+a. Izlistati i prikazati sve zaposlene koji žive u Beogradu.
+b. Ispisati sve zaposlene koji imaju platu veću od 15000.
+c. Pronaći radnika sa najvećom zaradom i ispisati podatke o njemu.
+d. Pronaći srednju zaradu svih radnika.
+20. Napisati PHP program koji će prikazati elemente niza u neodredjenoj listi. Dati niz sadrži 3 elementa
+koji su stringovi: zelena, crvena i bela.
+21. Napraviti niz koji će sadržati celobrojne vrednosti od 1 do 5. Obrisati bilo koji element niza tako da
+indeksi niza budu normalizovani.
+Primer:
+● array(5) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(4) [4]=> int(5) }
+● Kada se obriše element sa indeksom [3] rezultat je:
+● array(4) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(5) }
+22. Napisati PHP program koji će na osnovu dva niza napraviti treći niz u kojem će indeksi biti vrednosti
+iz prvog niza, a vrednosti će biti vrednosti iz drugog niza.
+● Prvi niz: “field1” => “first”, “field2” => “second”, “field3” => “third”
+● Drugi niz: “fiedl1value” => “dinosaur”, “field2value => “pig”, “field3value” => “platypus”
+● Izlaz treba biti: “first” => “dinosaur”, “second” => “pig”, “third” => “platypus”
+23. Napisati PHP program koji će kreirati niz čije će vrednosti biti brojevi iz datog stringa.
+● String: “1 - 2 - 3 - 4 - 5”
+● Kreirati niz u kojem će biti samo parni brojevi i ispisati ga na stranicu.
+● Kreirati niz u kojem će biti samo neparni brojevi i ispisati ga na stranicu.
+24. Napisati kod koji deli predefinisani tekst po belom karakteru a zatim formira asocijativni niz gde je
+trenutna reč ključ sledećoj. Poslednja reč nije ključ.
+Primer: Lorem ipsum dolorem [„Lorem“ => „ipsum“, „ipsum“ => „dolorem“]
+25. Napisati PHP program koji će ispisati sve podatke o studentima iz datog JSON-a. Koristiti foreach za
+ispis podataka.
+● JSON podatak:
+[
+{
+"name" : "John Garg",
+"age" : "15",
+"school" : "Ahlcon Public school"
+},
+{
+"name" : "Smith Soy",
+"age" : "16",
+"school" : "St. Marie school"
+},
+{
+"name" : "Charle Rena",
+"age" : "16",
+"school" : "St. Columba school"
+}
+]
+26. Napraviti formu koja če imati jedno polje “input” i submit dugme. Koristite metodu “GET”.
+● U polje “input” se unose brojevi odvojeni razmakom (space).
+● Na submit forme, brojevi se sortiraju po rastucem poretku i upisuju nazad u polje “input” odvojeni
+zarezom.
+● Napomena: kod tako sortiranih brojeva i odvojenih zarezom, posle poslednjeg broja zarez ne
+treba da postoji.
+27. Napraviti formu koja će imati jedno polje “input” i submit dugme. Koristite metodu “POST”.
+● U polje “input” unose se proizvoljna imena odvojena razmakom (space).
+● Na submit forme, ispisuju se imena koja imaju vise od 5 karaktera.
+○ Imena se ispisuju u okviru neodredjene liste.
+○ Imena koja imaju vise od 5 karaktera ispisuju se zelenom bojom.
+○ Imena koja imaju manje od 5 karaktera ispisuju se crvenom bojom.
+○ Imena koja imaju 5 karaktera ispusuju se sivom bojom.
+28. Napisati PHP kod koji će da omogući upload fajla.
+● Fajl mora imati ekstenziju .png.
+● Fajl ne sme biti veći od 1MB.
+29. Napraviti dve stranice: index.php i cookie.php. Na stranici index.php naparavi formu sa dva select
+polja i submit dugmetom. U prvom selectu “korisnik” moze da odabere boju pozadine, a u drugom selectu
+“korisnik” moze da odabere boju slova na stranici. Klikom na submit dugme kreiraju se dva kolacica (oba
+kolacica traju 1 dan) i korisnik se redirektuje na stranicu cookie.php gde je podešena odabrana boja
+pozadine i boja slova na stranici. Stranica cookie.php sadrzi dva <h4> taga i link ka index.php stranici, na
+kojoj takođe trebaju biti primenjene odabrane boje. U prvom <h4> tagu treba ispisati koju pozadinu je
+korisnik odabrao, a u drugom <h4> tagu treba ispisati koju boju slova je korisnik odabrao.
+30. Napraviti funkciju koja će proveriti koji su brojevi prosti od 2 do n (n je ulazni parametar funkciji).
+Proste brojeve upisati u niz koji će funkcija vratiti kao rezultat. Na stranici se ispisuju elementi
+novokreiranog niza.
+31. Napraviti funkciju koja će ispitati da li je string palindrom. Funkciji se prosledjuje string. Funkcija
+ispisuje rezultat na stranici. Ukoliko je string palindrom: “Palindrom”, ukoliko nije: “Nije palindrom”.
+32. Kreirati bazu podataka i tabelu users. Tabela users sadrži sledeće kolone: id, username, password,
+role. Upisati u tabelu users 4 korisnika kroz PHP kod. Prikazati koliko je korisnika upisano uz pomoć
+mysqli funkcije i takođe ispisati id korisnika koji je poslednji upisan u bazu uz pomoc mysqli funcije.
+1. Marko, marko1, administrator
+2. Janko, janko2, urednik
+3. Stevan, stevan3, pretplatnik
+● Prikazati sve korisnike na stranici. (prikazati sve kolone iz tabele)
+○ Prikazati broj redova koji su isčitani iz baze uz pomoc mysqli funkcije.
+● Promeniti lozinku korisniku Janko kroz PHP kod.
+● Obrisati sve korisnike kroz PHP kod.
