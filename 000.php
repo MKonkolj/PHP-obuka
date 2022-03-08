@@ -79,7 +79,12 @@
     // 4. Napiši PHP program za izračunavanje sume dve celobrojne vrednosti. Ukoliko su dve vrednosti iste, program vraća njihov trostruki zbir.
     ?>
 
-    
+    <?php
+        function sumaITrostrukiZbir($a, $b) {
+            return ($a == $b) ? ($a+$b)*3 : $a+$b;
+        }
+    ?>
+    <p><?php echo sumaITrostrukiZbir(3, 3) ?></p>
     
     </fieldset>
     <fieldset><legend>Zadatak 5</legend>
@@ -95,6 +100,12 @@
     //        ○ izlaz: false
     ?>
 
+    <?php
+        function proveraZa30($a, $b) {
+            return ($a == 30 || $b == 30 || $a + $b == 30) ? "true" : "false";
+        }
+    ?>
+    <p>Da li je broj 30 ili je suma 30? <?php echo proveraZa30(30, 15) ?></p>
     
     
     </fieldset>
@@ -103,6 +114,17 @@
     // 6. Napisati PHP program koji će proveriti da li je jedna od dve celobrojne vrednosti manja od 0, a druga veća od 100.
     ?>
 
+
+    <?php
+        function pozitivanBroj($a, $b) {
+            if (($a !== abs($a) && $b > 100) || ($b !== abs($b) && $a > 100)) {
+                return "Brojevi ispunjavaju uslove";
+            } else {
+                return "Brojevi NE ispunjavaju uslove";
+            }
+        }
+    ?>
+    <p><?php echo pozitivanBroj(103, -102) ?></p>
     
     
     </fieldset>
@@ -111,7 +133,16 @@
     // 7. Napisati PHP program koji će proveriti da li je jedna od dve celobrojne vrednosti u opsegu između 100 i 200. (ukljucujuci 100 i 200) Ukoliko jeste program vraca true, a ukoliko nije program vraca false.
     ?>
 
-    
+    <?php
+        function inRange($a, $b) {
+            if (($a >= 100 && $a <= 200) || ($b >= 100 && $b <=200)) {
+                return "true";
+            } else {
+                return "false";
+            }
+        }
+    ?>
+    <p>Da li je broj u opsegu? <?php echo inRange(100, 66) ?></p>
     
     </fieldset>
     <fieldset><legend>Zadatak 8</legend>
@@ -120,7 +151,17 @@
     //      ● Nije dozvoljeno korišćenje bilo koje ugrađjene funkcije za određivanje najvećeg broja.
     ?>
 
-    
+    <?php
+        function biggestNum($a, $b, $c) {
+            $numbers = [$a, $b, $c];
+            $biggestNum = 0;
+            foreach($numbers as $number) {
+                ($number > $biggestNum) ? $biggestNum = $number : 0;
+            }
+            return $biggestNum;
+        }
+    ?>
+    <p>Najveći broj je: <?php echo biggestNum(33, 155, 88) ?></p>
     
     </fieldset>
     <fieldset><legend>Zadatak 9</legend>
@@ -128,7 +169,18 @@
     // 9. Napisati PHP program koji će proveriti koja od dve celobrojne vrednosti je bliža broju 100 i ispisati je. Ukoliko su brojevi jednaki, ispisati 0.
     ?>
 
-    
+    <?php
+        function closestTo100($a, $b) {
+            if(abs($a) == abs($b)) {
+                return "Razmak je: 0";
+            } elseif (abs($a-100) < abs($b-100)) {
+                return $a." je bliži 100!";
+            } else {
+                return $b." je bliži 100!";
+            }
+        }
+    ?>
+    <p><?php echo closestTo100(102, 88) ?></p>
     
     </fieldset>
     <fieldset><legend>Zadatak 10</legend>
