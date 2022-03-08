@@ -17,13 +17,18 @@
         width: 80%;
         margin: 0 auto;
         padding: 2rem 0;
+        background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
     }
     fieldset {
         margin: 1rem 0;
+        background: white;
+        border: 2px solid #C06C84;
+        border-top: 2.5rem solid white;
     }
     legend {
-        color: grey;
+        color: #355C7D;
         font-size: 0.875rem;
+        font-weight: 700;
     }
 </style>
 <body>
