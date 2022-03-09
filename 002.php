@@ -140,8 +140,21 @@
     // mnozimo sa prethodnim clanom niza
     ?>
 
-    
-    
+    <p>Pomnožen array:</p>
+    <ul>
+    <?php
+        $newArray = array(0,1,2,3,4,5,6,7,8);
+        function incrementalMultiply($array) {
+            for($i = 1; $i < count($array); $i++) {
+                echo "<li>";
+                echo $array[$i-1]*$array[$i];
+                echo " (".$array[$i].")";
+                echo "</li>";
+            };
+        };
+        incrementalMultiply($newArray);
+    ?>
+    </ul>
     </fieldset>
     <!-- ZADACI END -->
 </body>
