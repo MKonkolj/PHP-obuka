@@ -187,15 +187,15 @@
             $odabraniDatumi = [
                 // date(mktime(0, 0, 0, 3, 3, 2055)),
                 [03, 31, 2024],
-                [01, 24, 2045],
+                [12, 25, 2022],
                 [05, 01, 2045],
             ];
 
             $prioriteti = [
                 "Bozic" =>     ["prioritet" => 3, "ucestalost" => ["25.12."]],
                 "Uskrs" =>     ["prioritet" => 3, "ucestalost" => [ "17.04.2022", "09.04.2023", "31.03.2024", "20.04.2025", "05.04.2026", "28.03.2027", "16.04.2028", "01.04.2029", "21.04.2030", "13.04.2031", "28.03.2032", "17.04.2033", "09.04.2034", "25.03.2035", "13.04.2036", "05.04.2037", "25.04.2038", "10.04.2039", "01.04.2040", "21.04.2041", "06.04.2042", "29.03.2043", "17.04.2044", "09.04.2045", "25.03.2046", "14.04.2047", "05.04.2048", "18.04.2049", "10.04.2050" ]],
-                "trening" =>   ["prioritet" => 1, "ucestalost" => ["Monday", "Wednesday", "Friday"]],
-                "ispit" =>     ["prioritet" => 3, "ucestalost" => ["January", "February", "June", "July", "September"]]
+                "trening" =>   ["prioritet" => 1, "ucestalost" => ["Monday", "Wednesday", "Friday", "Sunday"]],
+                "ispit" =>     ["prioritet" => 3, "ucestalost" => ["January", "February", "June", "July", "September", "December"]]
             ];
 
             foreach($odabraniDatumi as $key => $datum) {
@@ -213,15 +213,16 @@
 
                         if ($pun_datum == $ucestalost || $dan_mesec == $ucestalost || $mesec == $ucestalost || $dan == $ucestalost) {
 
-                            if ($dogadjaj["prioritet"] >= $kalendar[$key]["dogadjaj"]["prioritet"]) {
-                                $kalendar[$key]["dogadjaj"] = array($ime => $dogadjaj);
+                            if ($dogadjaj["prioritet"] > $kalendar[$key]["dogadjaj"]["prioritet"]) {
+                                $kalendar[$key]["dogadjaj"]["ime"] = $ime;
+                                $kalendar[$key]["dogadjaj"]["prioritet"] = $dogadjaj["prioritet"];
                             }
+                            echo "<p>Datum: ".$kalendar[$key]["datum"][0];
+                            echo "<br>";
+                            echo "Događaj: ".$kalendar[$key]["dogadjaj"]["ime"]."</p>";
                         }
                     }
                 };
-            }
-            foreach($kalendar as $kalItem) {
-                // var_dump($kalItem);
             }
         };
         kalendarPrioriteta();
