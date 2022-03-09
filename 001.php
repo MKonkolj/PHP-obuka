@@ -7,7 +7,33 @@
     <meta author="Mladen Konkolj">
     <title>Taskovi</title>
 </head>
+<style>
+    * {
+        font-family: 'Inconsolata', monospace;
+    }
+    body {
+        width: 80%;
+        margin: 0 auto;
+        padding: 2rem 0;
+        background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
+    }
+    fieldset {
+        margin: 1rem 0;
+        background: white;
+        border: 2px solid #C06C84;
+        border-top: 2.5rem solid white;
+    }
+    legend {
+        color: #355C7D;
+        font-size: 0.875rem;
+        font-weight: 700;
+    }
+    h3 {
+        color: white;
+    }
+</style>
 <body>
+    <h3>Taskovi 1</h3>
     <!-- ZADACI -->
     <fieldset><legend>Task 1</legend>
     <?php

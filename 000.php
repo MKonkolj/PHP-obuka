@@ -30,8 +30,12 @@
         font-size: 0.875rem;
         font-weight: 700;
     }
+    h3 {
+        color: white;
+    }
 </style>
 <body>
+    <h3>Zadaci sa testiranja</h3>
     <!-- ZADACI -->
     <fieldset><legend>Zadatak 1</legend>
     <?php
