@@ -96,10 +96,11 @@
 
     <p>Bez for/foreach petlje:<br><?php
     $asoc_arr = ["programer" => 3, "marketing" => 4, "devops" => 6];
+    $keys = array_keys($asoc_arr);
 
-    echo "<span>".$asoc_arr." / ".$asoc_arr["programer"].", </span>";
-    echo "<span>".$asoc_arr["marketing"].", </span>";
-    echo "<span>".$asoc_arr["devops"].", </span>";
+    echo "<span>".$keys[0]." / ".$asoc_arr["programer"].", </span>";
+    echo "<span>".$keys[1]." / ".$asoc_arr["marketing"].", </span>";
+    echo "<span>".$keys[2]." / ".$asoc_arr["devops"].", </span>";
 
     ?></p>
 
