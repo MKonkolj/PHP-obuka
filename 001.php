@@ -56,10 +56,16 @@
         $sortedAsocNiz = asort($autiAsocNiz);
         $sortedAsocNiz = arsort($autoMultiNiz);
 
+        // array_multisort(array_map(function($autoMultiNiz) {
+        //     return $autoMultiNiz['cena'];
+        // }, $autoMultiNiz), SORT_ASC, $autoMultiNiz);
+
         // FOR loop
         for($i = 0; $i < sizeof($autiNiz); $i++) {
             echo $autiNiz[$i]."<br>";
         }
+
+        // array_keys za asoc array for
         
         echo "<br>";
         // FOREACH loop
@@ -154,41 +160,43 @@
 
             $odabraniDatumi = [
                 // date(mktime(0, 0, 0, 3, 3, 2055)),
-                [12, 25, 2045],
-                [03, 24, 2045],
+                [03, 31, 2024],
+                [01, 24, 2045],
                 [05, 01, 2045],
             ];
 
             $prioriteti = [
-                ["Bozic" =>     ["prioritet" => 3, "ucestalost" => "25.12."]],
-                ["Uskrs" =>     ["prioritet" => 3, "ucestalost" => [ "17.04.2022", "09.04.2023", "31.03.2024", "20.04.2025", "05.04.2026", "28.03.2027", "16.04.2028", "01.04.2029", "21.04.2030", "13.04.2031", "28.03.2032", "17.04.2033", "09.04.2034", "25.03.2035", "13.04.2036", "05.04.2037", "25.04.2038", "10.04.2039", "01.04.2040", "21.04.2041", "06.04.2042", "29.03.2043", "17.04.2044", "09.04.2045", "25.03.2046", "14.04.2047", "05.04.2048", "18.04.2049", "10.04.2050" ]]],
-                ["trening" =>   ["prioritet" => 1, "ucestalost" => ["Monday", "Wednesday", "Friday"]]],
-                ["ispit" =>     ["prioritet" => 3, "ucestalost" => ["January", "February", "June", "July", "September"]]]
+                "Bozic" =>     ["prioritet" => 3, "ucestalost" => ["25.12."]],
+                "Uskrs" =>     ["prioritet" => 3, "ucestalost" => [ "17.04.2022", "09.04.2023", "31.03.2024", "20.04.2025", "05.04.2026", "28.03.2027", "16.04.2028", "01.04.2029", "21.04.2030", "13.04.2031", "28.03.2032", "17.04.2033", "09.04.2034", "25.03.2035", "13.04.2036", "05.04.2037", "25.04.2038", "10.04.2039", "01.04.2040", "21.04.2041", "06.04.2042", "29.03.2043", "17.04.2044", "09.04.2045", "25.03.2046", "14.04.2047", "05.04.2048", "18.04.2049", "10.04.2050" ]],
+                "trening" =>   ["prioritet" => 1, "ucestalost" => ["Monday", "Wednesday", "Friday"]],
+                "ispit" =>     ["prioritet" => 3, "ucestalost" => ["January", "February", "June", "July", "September"]]
             ];
-                            
-            // var_dump($prioriteti[1]);die();
 
-            function prioritetiNaDan($datum) {
+            foreach($odabraniDatumi as $key => $datum) {
+                
+                $dan = date("l", mktime(0, 0, 0, $datum[0], $datum[1], $datum[2])); // "Thursday"
                 $mesec = date("F", mktime(0, 0, 0, $datum[0], $datum[1], $datum[2])); // "March"
                 $dan_mesec = date("d\.m\.", mktime(0, 0, 0, $datum[0], $datum[1], $datum[2])); // "04.05."
-                $pun_datum = date("d\.m\.Y\.", mktime(0, 0, 0, $datum[0], $datum[1], $datum[2])); // "04.05.2021."
+                $pun_datum = date("d\.m\.Y", mktime(0, 0, 0, $datum[0], $datum[1], $datum[2])); // "04.05.2021."
                 
-                foreach($prioriteti as $dogadjaj) {
-                    ($dan_mesec == $dogadjaj["ucestalost"]) ? var_dump($dogadjaj) : false;
-                }
+                $kalendar[$key]["datum"][] = $dan." ".$pun_datum;
+                $kalendar[$key]["dogadjaj"]["prioritet"] = 0;
+    
+                foreach($prioriteti as $ime => $dogadjaj) {
+                    foreach($dogadjaj["ucestalost"] as $ucestalost) {
+
+                        if ($pun_datum == $ucestalost || $dan_mesec == $ucestalost || $mesec == $ucestalost || $dan == $ucestalost) {
+
+                            if ($dogadjaj["prioritet"] >= $kalendar[$key]["dogadjaj"]["prioritet"]) {
+                                $kalendar[$key]["dogadjaj"] = array($ime => $dogadjaj);
+                            }
+                        }
+                    }
+                };
             }
-
-            // kreiranje kalendara
-            for ($i = 0; $i < sizeof($odabraniDatumi); $i++) {
-                
-                $kalendar[$i]["datum"] = $odabraniDatumi[$i];
-                $događaji[$i]["prioriteti"] = array_filter($prioriteti, prioritetiNaDan($odabraniDatumi[$i]));
-
-                // $kalendar[$key]["prioriteti"]
-            };
-            // var_dump($kalendar);
-
-
+            foreach($kalendar as $kalItem) {
+                // var_dump($kalItem);
+            }
         };
         kalendarPrioriteta();
 
