@@ -48,16 +48,16 @@
     <main>
         <div class="container">
             <h3>Rezervacije</h3>
-            <form action="forma-handleing.php" method="POST">
+            <form action="004_form-handling.php" method="POST">
                 <input type="text" name="ime" placeholder="Ime" />
                 <input type="text" name="prezime" placeholder="Prezime" />
-                <select type="select">
-                    <option value="volvo" selected="selected">Hotel1</option>
-                    <option value="saab">Hotel2</option>
-                    <option value="mercedes">Hotel3</option>
-                    <option value="audi">Hotel4</option>
+                <select type="select" name="hotel">
+                    <option value="hotel1" selected="selected">Hotel1</option>
+                    <option value="hotel2">Hotel2</option>
+                    <option value="hotel3">Hotel3</option>
+                    <option value="hotel4">Hotel4</option>
                 </select>
-                <input type="date"/>
+                <input type="date" name="datum"/>
                 <button type="submit" name="submit-reg" >Rezerviši</button>
             </form>
         </div>
