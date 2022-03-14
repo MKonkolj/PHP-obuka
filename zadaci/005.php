@@ -59,8 +59,11 @@ include("005_check_form.php");
 
     <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST" enctype="multipart/form-data">
 
+    <div><?php echo $errors["ime"] ?></div>
     <input type="text" name="ime">
+    <div><?php echo $errors["prezime"] ?></div>
     <input type="text" name="prezime">
+    <div><?php echo $errors["avatar"] ?></div>
     <input type="file" name="avatar">
     <input type="submit" name="submit">
 
@@ -79,7 +82,7 @@ include("005_check_form.php");
     // Na check_login.php napraviti funkcionalnost za logout.
     ?>
 
-
+    
 
     </fieldset>
     <fieldset><legend>Task 5</legend>
@@ -93,7 +96,20 @@ include("005_check_form.php");
     //  - Prikazati datum u ovom formatu: mesec,dan,godina.
     ?>
 
-
+    <?php
+    echo date("d.m.Y.");
+    echo "<br>";
+    echo date("Y");
+    echo "<br>";
+    echo date("F");
+    echo "<br>";
+    echo date("l");
+    echo "<br>";
+    echo date("d-m-Y");
+    echo "<br>";
+    echo date("m-d-Y");
+    echo "<br>";
+    ?>
 
     </fieldset>
     <!-- ZADACI END -->
