@@ -72,7 +72,6 @@ include("005_check_login.php");
 
     </form>
 
-
     </fieldset>
     <fieldset><legend>Task 4</legend>
     <?php
