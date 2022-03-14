@@ -1,5 +1,6 @@
 <?php
 include("005_check_form.php");
+include("005_check_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +18,7 @@ include("005_check_form.php");
         font-family: 'Inconsolata', monospace;
     }
     body {
-        width: 80%;
+        width: min(80%, 600px);
         margin: 0 auto;
         padding: 2rem 0;
         background: linear-gradient(to right, #355c7d, #6c5b7b, #c06c84);
@@ -39,8 +40,10 @@ include("005_check_form.php");
     form {
         display: flex;
         flex-direction: column;
-        width: 200px;
         gap: .5rem;
+    }
+    input, button {
+        width: 200px;
     }
 </style>
 <body>
@@ -60,9 +63,9 @@ include("005_check_form.php");
     <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST" enctype="multipart/form-data">
 
     <div><?php echo $errors["ime"] ?></div>
-    <input type="text" name="ime">
+    <input type="text" name="ime" placeholder="Ime">
     <div><?php echo $errors["prezime"] ?></div>
-    <input type="text" name="prezime">
+    <input type="text" name="prezime" placeholder="Prezime">
     <div><?php echo $errors["avatar"] ?></div>
     <input type="file" name="avatar">
     <input type="submit" name="submit">
@@ -82,7 +85,12 @@ include("005_check_form.php");
     // Na check_login.php napraviti funkcionalnost za logout.
     ?>
 
-    
+    <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
+        <input type="text" name="username" placeholder="Admin">
+        <input type="password" name="password" placeholder="1234">
+        <p><?php echo $login_error ?></p>
+        <button type="submit" name="login">Login</button>
+    </form>
 
     </fieldset>
     <fieldset><legend>Task 5</legend>
