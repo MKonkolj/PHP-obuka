@@ -1,20 +1,18 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="<?php $_SERVER["PHP_SELF"];?>" method="POST">
 
-    $datum = date(mktime(0, 0, 0, 3, 4, 2055)); // '2687731200'
-    var_dump($datum);
-    $datum = date("l", mktime(0, 0, 0, 3, 3, 2055)); // 'Thursday'
-    var_dump($datum);
-    $datum = date("F", mktime(0, 0, 0, 2, 4, 2055)); // 'March'
-    var_dump($datum);
-    $datum = date("j", mktime(0, 0, 0, 3, 4, 2055)); // '4'
-    var_dump($datum);
+    <input type="text" name="ime">
+    <input type="text" name="prezime">
+    <button type="submit"> Pošalji </button>
 
-
-    $datum = date("d\.m\.", mktime(0, 0, 0, 3, 4, 2055)); // '4.5.'
-    var_dump($datum);
-
-
-
-
-
-?>
+    </form>
+</body>
+</html>
