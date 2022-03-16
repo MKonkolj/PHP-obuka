@@ -1,7 +1,7 @@
 <?php
-include("005_check_login.php");
+include("check_login.php");
 if($_SESSION["logged-in"] !== true) {
-    header ("location: 005.php");
+    header ("location: index.php");
 }
 
 
@@ -25,8 +25,6 @@ if($_SESSION["logged-in"] !== true) {
 </style>
 <body>
     <h1>Welcome <?php echo $_SESSION["username"] ?>!</h1>
-    <form action="<?php echo $_SERVER["PHP_SELF"] ?>" method="POST">
-        <button type="submit" name="logout">Log out</button>
-    </form>
+    <button><a href="logout.php">Log out</a></button>
 </body>
 </html>

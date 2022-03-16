@@ -1,6 +1,6 @@
 <?php
-include("005_check_form.php");
-include("005_check_login.php");
+include("check_form.php");
+include("check_login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">

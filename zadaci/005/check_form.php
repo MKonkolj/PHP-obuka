@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
             if ($_FILES["avatar"]["size"] < 2000000) {
                 $ekstenzija_slike = ".".ltrim($_FILES["avatar"]["type"], "image/");
                 $ime_slike = $_FILES["avatar"]["name"]."__".date("Y-m-d").$ekstenzija_slike;
-                move_uploaded_file($_FILES["avatar"]["tmp_name"], "005_slike/$ime_slike");
+                move_uploaded_file($_FILES["avatar"]["tmp_name"], "slike/$ime_slike");
             } else {
                 $errors["avatar"] = "Prevelika slika. Maksimalna večičina je 2MB.";
             }
