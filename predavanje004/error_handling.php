@@ -1,23 +1,23 @@
 <?php 
 
+
 $number = "";
 $message = "";
-
-// $number = 5/0;
+function doStuff(int $a) {
+    if($a % 2 !== 0) {
+        throw new \Exception("ovo nije deljivo sa 2");
+    } 
+    echo "deljiv sa 2";
+}
 
 try  {
-    $number = 5/0;
+    doStuff(3);
 }
-catch(Throwable $ex) {
-    // echo $ex;
-    $message = "Došlo je do greške...";
+catch(\Exception $ex) {
+    echo $ex->getMessage();
     $number = 10/2;
 }
 
 echo "kod je nastavio";
-
-echo $message;
-
-
 
 ?>
