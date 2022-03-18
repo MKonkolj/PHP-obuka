@@ -1,3 +1,7 @@
+<?php
+include("connect_db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,10 +47,53 @@
     Napraviti asojicativni niz $proizvodi (ime proizvoda, cena )
     Napisati skriptu koja ce popuniti tabelu proizvodi sa podacima koji su u asocijativnom nizu. 
     -->
+    <?php 
+
+
+    $proizvodi = [
+        "Across Vape Roulette RTA" => 2999,
+        "Ambition Mods Ripley MTL-RDL RDTA" => 5499,
+        "Aspire Kumo RDTA" => 5499,
+        "Aspire Neeko MTL RTA" => 4499,
+        "Digiflavor Siren V4 MTL RTA" => 3499,
+        "HellVape Dead Rabbit V2 RDA" => 3799,
+        "Innokin Ares 2 MTL RTA" => 4499,
+        "Vandy Vape Berserker V2 MTL RTA" => 4499,
+        "Vandy Vape Kylin Mini V2 RTA" => 4599,
+        "ZQ Vapor Trio RTA" => 3199,
+        "GeekVape Zeus Nano" => 2799,
+        "Innokin Z Force" => 3599,
+        "Horizontech Sakerz" => 4499,
+    ];
+    var_dump($proizvodi);
+
+    function setProizvodi($proizvodi) {
+    
+        $db = connect();
+    
+        foreach($proizvodi as $ime => $cena) {
+            $ime = mysqli_real_escape_string($db, $ime);
+            $cena = mysqli_real_escape_string($db, $cena);
+    
+            $sql = " INSERT proizvodi(ime, cena) VALUES ('$ime', '$cena') ";
+            
+            if(mysqli_query($db, $sql)) {
+                echo "Success";
+                echo "<br>";
+            } else {
+                echo "query error: ".mysqli_error($db);
+                echo "<br>";
+            };
+        }
+    }
+    // setProizvodi($proizvodi);
+    
+    
+    ?>
 
 
     </fieldset>
-    <fieldset><legend>Zadatak 2</legend>
+    <fieldset><legend>Zadatak 3</legend>
     <!-- 
     Izkoristiti tabelu proizvodi iz prethodnog zadatka :
     - Napisati query koji ce sortirati rezultate prema ceni ( ASC )
@@ -55,9 +102,67 @@
     - Ispisati na ekran prosecnu cenu svih proizvoda sa AVG funkcijom.
     -->
 
+    <?php 
+    
+    function getAndSortProizvoda () {
+        $db = connect();
+        $sql = " SELECT ime, cena FROM proizvodi ORDER BY cena ASC ";
+        $run = mysqli_query($db, $sql);
+
+        while($row = mysqli_fetch_assoc($run)) {
+            echo $row["cena"]." rsd - ".$row["ime"]."<br>";
+        }
+
+
+    }
+
+    function getUkupnoProizvoda() {
+        $db = connect();
+        $sql = " SELECT count(ime) as broj FROM proizvodi ";
+        $run = mysqli_query($db, $sql);
+        $ukupno = mysqli_fetch_assoc($run);
+
+        return "<strong>Ukupno</strong> ima ".$ukupno["broj"]." proizvoda.";
+    }
+
+    function getJeftinije3500() {
+        $db = connect();
+        $sql = " SELECT ime FROM proizvodi WHERE cena < 3500 ";
+        $run = mysqli_query($db, $sql);
+        
+        while($row = mysqli_fetch_assoc($run)){
+            echo "- ".$row["ime"]."<br>";
+        };
+    }
+
+    function getProsecnaCena() {
+        $db = connect();
+        $sql = " SELECT avg(cena) as prosek_cena FROM proizvodi ";
+        $run = mysqli_query($db, $sql);
+        $cena = mysqli_fetch_assoc($run);
+
+        return "<strong>Prosečna cena</strong> svih proizvoda je ".$cena["prosek_cena"]." rsd.";
+    }
+
+
+    echo "<strong>Sortirani proizvodi:</strong>";
+    echo "<br>";
+    getAndSortProizvoda ();
+    echo "<br>";
+    echo getUkupnoProizvoda();
+    echo "<br>";
+    echo "<br>";
+    echo "<strong>Jeftini od 3500 rsd:</strong>";
+    echo "<br>";
+    getJeftinije3500();
+    echo "<br>";
+    echo getProsecnaCena();
+
+    
+    ?>
 
     </fieldset>
-    <fieldset><legend>Zadatak 2</legend>
+    <fieldset><legend>Zadatak 4</legend>
     <!-- 
     Napraviti tabelu country ( city,country) .
     Popuniti tabelu sa sledecim podacima:
@@ -72,7 +177,7 @@
 
 
     </fieldset>
-    <fieldset><legend>Zadatak 2</legend>
+    <fieldset><legend>Zadatak 5</legend>
     <!-- 
     Napraviti tabelu categories ( category_id,product_id (foreign key sa tabele proizvodi),
     category_name)
@@ -85,7 +190,7 @@
 
 
     </fieldset>
-    <fieldset><legend>Zadatak 2</legend>
+    <fieldset><legend>Zadatak 6</legend>
     <!-- 
     Napraviti jednu formu za kreiranje proizvoda na index.php
     Izkoristiti tabelu proizvodi I categories .
