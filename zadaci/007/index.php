@@ -112,8 +112,6 @@ include("connect_db.php");
         while($row = mysqli_fetch_assoc($run)) {
             echo $row["cena"]." rsd - ".$row["ime"]."<br>";
         }
-
-
     }
 
     function getUkupnoProizvoda() {
@@ -174,6 +172,25 @@ include("connect_db.php");
     Ispisati na ekran koliko ima gradova x zemlja. Na primer :
     Serbia 2
     -->
+
+    <?php 
+    
+    function getBrojGradova() {
+        $db = connect();
+        $sql = " SELECT count(city) as num_cities, country FROM country GROUP BY country";
+        $run = mysqli_query($db, $sql);
+        
+        while($list = mysqli_fetch_assoc($run)) {
+            echo $list["country"]." ".$list["num_cities"];
+            echo "<br>";
+        };
+
+    }
+    
+    getBrojGradova();
+    
+    
+    ?>
 
 
     </fieldset>
