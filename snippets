@@ -1,0 +1,13 @@
+// AJAX poziv (jquery)
+
+$("buttonID").click(function(){
+            $.ajax({url: "get_products.php" , method:"get" , success: function(result) {
+                $("resultDivID").html(result);
+            }})
+        })
+
+$("buttonID").click(function(){
+    $.ajax({url: "get_products.php" , method:"post" , data:{user_id:1} , success: function(result) {
+        $("resultDivID").html(result);
+    }})
+})
