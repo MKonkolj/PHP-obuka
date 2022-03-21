@@ -9,8 +9,6 @@ class Car {
         $this->brand = "BMW";
     }
 
-
-
 }
 
 $car1 = new Car();
