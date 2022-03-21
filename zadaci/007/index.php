@@ -51,16 +51,16 @@ include("connect_db.php");
 
 
     $proizvodi = [
-        "Across Vape Roulette RTA" => 2999,
-        "Ambition Mods Ripley MTL-RDL RDTA" => 5499,
-        "Aspire Kumo RDTA" => 5499,
-        "Aspire Neeko MTL RTA" => 4499,
-        "Digiflavor Siren V4 MTL RTA" => 3499,
-        "HellVape Dead Rabbit V2 RDA" => 3799,
-        "Innokin Ares 2 MTL RTA" => 4499,
-        "Vandy Vape Berserker V2 MTL RTA" => 4499,
-        "Vandy Vape Kylin Mini V2 RTA" => 4599,
-        "ZQ Vapor Trio RTA" => 3199,
+        "Across Vape Roulette" => 2999,
+        "Ambition Mods Ripley" => 5499,
+        "Aspire Kumo" => 5499,
+        "Aspire Neeko" => 4499,
+        "Digiflavor Siren V4" => 3499,
+        "HellVape Dead Rabbit V2" => 3799,
+        "Innokin Ares 2" => 4499,
+        "Vandy Vape Berserker V2" => 4499,
+        "Vandy Vape Kylin Mini V2" => 4599,
+        "ZQ Vapor Trio" => 3199,
         "GeekVape Zeus Nano" => 2799,
         "Innokin Z Force" => 3599,
         "Horizontech Sakerz" => 4499,
@@ -150,7 +150,7 @@ include("connect_db.php");
     echo getUkupnoProizvoda();
     echo "<br>";
     echo "<br>";
-    echo "<strong>Jeftini od 3500 rsd:</strong>";
+    echo "<strong>Jeftiniji od 3500 rsd:</strong>";
     echo "<br>";
     getJeftinije3500();
     echo "<br>";
@@ -196,7 +196,7 @@ include("connect_db.php");
     </fieldset>
     <fieldset><legend>Zadatak 5</legend>
     <!-- 
-    Napraviti tabelu categories ( category_id,product_id (foreign key sa tabele proizvodi),
+    Napraviti tabelu categories ( category_id, product_id (foreign key sa tabele proizvodi),
     category_name)
     Popuniti tabele sa podacima.
     Povezati tabele sa JOIN,LEFT JOIN,RIGHT JOIN I ispisati na ekran ime proizvoda cenu I
@@ -204,6 +204,66 @@ include("connect_db.php");
     Povezati tabele sa JOIN I ispisati na ekran ime proizvoda,cenu, I kategoriju ali samo one
     proizvode koji imaju vecu cenu od 0. 
     -->
+
+    <?php 
+    
+    function joinTabela() {
+        $db = connect();
+        $sql = " SELECT proizvodi.ime, proizvodi.cena, categories.category_name FROM proizvodi JOIN categories ON proizvodi.id = categories.product_id ";
+        $run = mysqli_query($db, $sql);
+
+        while($row = mysqli_fetch_assoc($run)) {
+            echo "<div>";
+            echo "Proizvod ".$row["ime"];
+            echo " (".$row["cena"]." rsd) ";
+            echo "se nalazi u kategoriji: ".$row["category_name"];
+            echo "</div>";
+        };
+    }
+
+    function leftJoinTabela() {
+        $db = connect();
+        $sql = " SELECT proizvodi.ime, proizvodi.cena, categories.category_name FROM proizvodi LEFT JOIN categories ON proizvodi.id = categories.product_id ";
+        $run = mysqli_query($db, $sql);
+
+        while($row = mysqli_fetch_assoc($run)) {
+            echo "<div>";
+            echo "Proizvod ".$row["ime"];
+            echo " (".$row["cena"]." rsd) ";
+            echo "se nalazi u kategoriji: ".$row["category_name"];
+            echo "</div>";
+        };
+    }
+
+    function rightJoinTabela() {
+        $db = connect();
+        $sql = " SELECT proizvodi.ime, proizvodi.cena, categories.category_name FROM proizvodi RIGHT JOIN categories ON proizvodi.id = categories.product_id ";
+        $run = mysqli_query($db, $sql);
+
+        while($row = mysqli_fetch_assoc($run)) {
+            echo "<div>";
+            echo "Proizvod ".$row["ime"];
+            echo " (".$row["cena"]." rsd) ";
+            echo "se nalazi u kategoriji: ".$row["category_name"];
+            echo "</div>";
+        };
+    }
+
+
+    echo "<strong>JOIN:</strong>";
+    echo "<br>";
+    joinTabela();
+    echo "<br>";
+    echo "<strong>LEFT JOIN:</strong>";
+    echo "<br>";
+    leftJoinTabela();
+    echo "<br>";
+    echo "<strong>RIGHT JOIN:</strong>";
+    echo "<br>";
+    rightJoinTabela();
+    
+    
+    ?>
 
 
     </fieldset>
@@ -220,6 +280,35 @@ include("connect_db.php");
     Konekcija sa bazom treba da bude u connection.php fajlu I connectToDatabase() funkciji.
     -->
 
+    <form action="functions.php" method="POST"
+    style="display: flex; flex-direction: column; gap: .5rem; width:250px;">
+
+    <input type="text" name="ime" placeholder="Ime proizvoda">
+    <input type="number" name="cena" placeholder="Cena">
+    <select name="kategorija">
+        
+        <?php 
+            (function() {
+                $db = connect();
+                $sql = " SELECT category_id, category_name FROM categories ";
+                $run = mysqli_query($db, $sql);
+                $first = true;
+
+                while($option = mysqli_fetch_assoc($run)) {
+                    if($first === true) {
+                        $first = false;
+                        echo "<option value='".$option["category_id"]."' selected='selected'>".$option["category_name"]."</option>";
+                    } else {
+                        echo "<option value='".$option["category_id"]."'>".$option["category_name"]."</option>";
+                    }
+                }
+            })();
+        ?>
+
+    </select>
+    <button type="submit" name="submit">Submit</button>
+
+    </form>
 
     </fieldset>
     <!-- ZADACI END -->
