@@ -192,26 +192,179 @@
     // 10. Napisati PHP program koji će ispisati na strinici true ukoliko su obe celobrojne vrednosti u opsegu izmedju 40 i 50 (ukljucujuci 40 i 50), ili su obe vrednosti u opsegu između 50 i 60 (ukljucujuci 50 i 60), u suprotnom false.
     ?>
 
+    <?php 
     
+    function between40and60($a, $b) {
+        if($a >= 40 && $b >= 40) {
+            if($a <= 50 && $b <= 50) {
+                echo "Oba broja su u opsegu 40 do 50";
+            } elseif ($a >= 50 && $b >= 50 && $a <= 60 && $b <= 60) {
+                echo "Oba broja su u opsegu 51 do 60";
+            } else {
+                echo "Brojevi nisu u istom opsegu";
+            }
+        } else {
+            echo "Brojevi nisu u opsegu";
+        }
+     }
+    
+    ?>
+    <p><?php between40and60(44, 55) ?></p>
     
     </fieldset>
     <fieldset><legend>Zadatak 11</legend>
     <?php
-    // 
+    // Napisati PHP program koji će proveriti da li dva nenegativna broja imaju istu poslednju cifru. Ukoliko imaju, ispisati true na strinici, u suptornom false.
     ?>
 
+    <?php 
     
+    function poslednjaCifra($a, $b) {
+        if(abs($a) !== $a || abs($b) !== $b) {
+            echo "Oba uneta broja moraju biti pozitivni";
+        } else {
+            if(substr($a, -1) == substr($b, -1)) {
+                echo "true";
+            } else {
+                echo "false";
+            }
+        }
+    }
+        
+    ?>
+    <p><?php poslednjaCifra(25, 24445) ?></p>
     
     </fieldset>
     <fieldset><legend>Zadatak 12</legend>
     <?php
-    // 
+    // Definisati jednu promenljivu koja je tipa string. Napisati PHP program koji će:
+    // ● Pretvoriti sve karaktere stringa u velika slova.
+    // ● Pretvoriti sve karaktere stringa u mala slova.
+    // ● Pretvoriti prvi karakter stringa u veliko slovo.
+    // ● Pretvoriti prvi karakter svake reči u veliko slovo.
     ?>
 
     
     
     </fieldset>
     <fieldset><legend>Zadatak 13</legend>
+    <?php
+    // Napisati PHP program koji će proveriti da li string1 sadrži u sebi string2. Ukoliko sadrži ispisati:
+    // “Reč je prisutna.”, u suprotnom “Reč nije prisutna.”
+    // ● string1 - PHP je najbolji programski jezik i volim da pišem PHP programe.
+    // ● string2 - PHP
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 14</legend>
+    <?php
+    // Napisati PHP program koji briše sve 0 sa početka datog stringa.
+    // ● string - 000547023.24
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 15</legend>
+    <?php
+    // Napisati PHP program koji će obrisati deo stringa.
+    // ● string: PHP je najbolji programsi jezik i volim da pišem PHP programe.
+    // ● string koji se brise: PHP
+    // ● ispisati na stranici tako izmenjeni string
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 16</legend>
+    <?php
+    // Definisati numericki niz. (statički) Vrednosti niza su brojevi od 1 do 5. Ispisati poslednji element niza.
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 17</legend>
+    <?php
+    // Definisati asocijativni niz. (statički) Niz sadrži podatke o vama. Ime, prezime, grad u kome živite na sledeći način.
+    //  ● Primer:
+    //      ○ indeks ime, vrednost Petar
+    //      ○ indeks prezime, vrednost Petrovic
+    //      ○ indeks grad, vrednost Beograd
+    // Ispisati podatke niza na sledeći naćin:
+    //      Ime: Petar
+    //      Prezime: Petrovic
+    //      Grad: Beograd
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 18</legend>
+    <?php
+    // Za predefinisane brojeve n i a napisati kod koji sve brojeve od 1 do n koji su deljivi sa a smešta u numerički niz i prikazuje ga na stranici.
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 19</legend>
+    <?php
+    // Kreirati numerički niz gde je svaki element novi asocijativni niz sa podacima o zaposlenima. Podaci u nizu su (0) ime i prezime, (1) mesto zaposlenja, (2) lokacija gde živi i (3) zarada. Niz treba da ima bar pet zaposlenih.
+    // a. Izlistati i prikazati sve zaposlene koji žive u Beogradu.
+    // b. Ispisati sve zaposlene koji imaju platu veću od 15000.
+    // c. Pronaći radnika sa najvećom zaradom i ispisati podatke o njemu.
+    // d. Pronaći srednju zaradu svih radnika.
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 20</legend>
+    <?php
+    // Napisati PHP program koji će prikazati elemente niza u neodredjenoj listi. Dati niz sadrži 3 elementa koji su stringovi: zelena, crvena i bela
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 21</legend>
+    <?php
+    // Napraviti niz koji će sadržati celobrojne vrednosti od 1 do 5. Obrisati bilo koji element niza tako da indeksi niza budu normalizovani.
+    // Primer:
+    // ● array(5) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(4) [4]=> int(5) }
+    // ● Kada se obriše element sa indeksom [3] rezultat je:
+    // ● array(4) { [0]=> int(1) [1]=> int(2) [2]=> int(3) [3]=> int(5) }
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 22</legend>
+    <?php
+    // Napisati PHP program koji će na osnovu dva niza napraviti treći niz u kojem će indeksi biti vrednosti iz prvog niza, a vrednosti će biti vrednosti iz drugog niza.
+    // ● Prvi niz: “field1” => “first”, “field2” => “second”, “field3” => “third”
+    // ● Drugi niz: “fiedl1value” => “dinosaur”, “field2value => “pig”, “field3value” => “platypus”
+    // ● Izlaz treba biti: “first” => “dinosaur”, “second” => “pig”, “third” => “platypus”
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 23</legend>
+    <?php
+    // Napisati PHP program koji će kreirati niz čije će vrednosti biti brojevi iz datog stringa.
+    // ● String: “1 - 2 - 3 - 4 - 5”
+    // ● Kreirati niz u kojem će biti samo parni brojevi i ispisati ga na stranicu.
+    // ● Kreirati niz u kojem će biti samo neparni brojevi i ispisati ga na stranicu.
+    ?>
+
+    
+    
+    </fieldset>
+    <fieldset><legend>Zadatak 24</legend>
     <?php
     // 
     ?>
