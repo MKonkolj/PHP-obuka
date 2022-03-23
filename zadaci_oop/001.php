@@ -7,7 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
-    <title><?php echo "Zadaci 2" ?></title>
+    <title><?php
+
+use Connection as GlobalConnection;
+
+ echo "Zadaci 2" ?></title>
 </head>
 <style>
     * {
@@ -52,22 +56,25 @@
         private $email;
         private $adresa;
 
-        function __contruct() {
+        public function __construct() {
             $this->ime = "Mladen";
             $this->email = "mladen@konkolj.com";
             $this->adresa = "Gogoljeva 10";
         }
 
         public function Informations() {
-            echo $ime;
+            echo $this->ime;
             echo "<br>";
-            echo $email;
+            echo $this->email;
             echo "<br>";
-            echo $adresa;
+            echo $this->adresa;
             echo "<br>";
         }
 
     }
+
+    $user = new User();
+    $user->Informations();
 
 
     ?>
@@ -80,6 +87,40 @@
     // Ukoliko smo uspesno kreirali vezu ispisati na ekran “ Connected successfully” .
     ?>
 
+    <?php 
+    
+    class Connection {
+
+        private $host;
+        private $user;
+        private $password;
+        private $database;
+
+        public $conn;
+
+        public function __construct() {
+            $this->host = "localhost";
+            $this->user = "root";
+            $this->password = "";
+            $this->database = "zadaci";
+
+            $this->conn = mysqli_connect($this->host, $this->user, $this->password, $this->database);
+        }
+
+        public function GetStatus() {
+            if($this->conn) {
+                echo "Connected successfully";
+            } else {
+                echo "Connection failed";
+            }
+        }
+    }
+
+    $test = new Connection;
+    $test->GetStatus();
+    
+    
+    ?>
 
 
     </fieldset>
@@ -99,6 +140,125 @@
     //     $car->Informations();
     ?>
 
+    <?php 
+
+    class Car {
+
+        private $broj_registracije = '222-33-44';
+        public $brend = 'bmw';
+
+        public function Informations() {
+
+            echo $this->broj_registracije;
+            echo "<br>";
+            echo $this->brend;
+
+        }
+    }
+
+        $car = new Car();
+        $car->Informations();
+        // funkcija je bila private pa nije mogla da se pozove van objekta
+
+    ?>
+
+
+    </fieldset>
+    <fieldset><legend>Zadatak 4</legend>
+    <?php
+    /*Napraviti klasu Developer koja ima sledeca svojstva:
+        ime,
+        prezime,
+        stack
+
+    Klasa BackendDeveloper, FrontEndDeveloper nasledjuju sva svojstva od Developera i Imaju dodatno svojstvo “introduce” I konstruktor koja ce podesiti vrednost za “introduce”.
+        “introduce” za BackendDevelopera : “Backend Developer is working on the server side”;
+        “introduce” za FrontEndDevelopera : “Front end developer is working on the client side;
+
+    Klasa PHP nasledjuje sva svojstva od BackendDevelopera, klasa JavaScript sva svojstva od
+    FrontEndDevelopera.
+
+    Klasa PHP I JavaScript imaju konstruktor koja ce podesiti ime,prezime, stack.
+
+    “stack” je niz, I treba da ima vrednosti [‘php’,’mysqli’] za PHP klasu, za JavaScript klasu
+    [‘javascript’,’html’]
+
+    Klasa PHP I JavaScript imaju I metodu Introduce (), metoda izpisuje na ekran ime,prezime,stack,
+    I introduce svojstva.*/
+    ?>
+
+    <?php 
+    
+    class Developer {
+        protected $ime;
+        protected $prezime;
+        protected $stack;
+    }
+
+    class BackendDeveloper extends Developer {
+        protected $introduce;
+
+        private function __construct() {
+            $this->introduce = "Backend Developer is working on the server side";
+        }
+    }
+
+    class FrontendDeveloper extends Developer {
+        protected $introduce;
+
+        private function __construct() {
+            $this->introduce = "Front end developer is working on the client side";
+        }
+    }
+
+    class PHP extends BackendDeveloper {
+        public function __construct() {
+            $this->ime = "Mladen";
+            $this->prezime = "Konkolj";
+            $this->stack = ["php", "mysql"];
+        }
+
+        public function Introduce() {
+            echo $this->ime;
+            echo "<br>";
+            echo $this->prezime;
+            echo "<br>";
+            foreach ($this->stack as $tech) {
+                echo $tech;
+                echo "<br>";
+            }
+        }
+    }
+
+    class Javascript extends FrontendDeveloper {
+        public function __construct() {
+            $this->ime = "Saška";
+            $this->prezime = "Despotov";
+            $this->stack = ["javascript", "html"];
+        }
+
+        public function Introduce() {
+            echo $this->ime;
+            echo "<br>";
+            echo $this->prezime;
+            echo "<br>";
+            foreach ($this->stack as $tech) {
+                echo $tech;
+                echo "<br>";
+            }
+        }
+    }
+
+
+    $php_dev = new PHP();
+    $php_dev->Introduce();
+
+    $js_dev = new Javascript();
+    $js_dev->Introduce();
+    
+    
+    
+    ?>
 
 
     </fieldset>

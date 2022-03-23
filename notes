@@ -1,1 +1,4 @@
 // Error handling submit forme, kako se radi u praksi?
+
+
+// Konekcija u posebnom falju, include u glavnom fajlu i funkcija se smešta u varijabilu ($connection = ConnectToDB())
