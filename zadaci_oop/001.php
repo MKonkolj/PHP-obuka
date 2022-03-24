@@ -1,3 +1,7 @@
+<?php 
+    declare(strict_types = 1);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -190,29 +194,31 @@ use Connection as GlobalConnection;
     <?php 
     
     class Developer {
-        protected $ime;
-        protected $prezime;
-        protected $stack;
+        protected string $ime;
+        protected string $prezime;
+        protected array $stack;
     }
 
     class BackendDeveloper extends Developer {
-        protected $introduce;
+        protected string $introduce_message;
 
-        private function __construct() {
-            $this->introduce = "Backend Developer is working on the server side";
+        public function __construct() {
+            $this->introduce_message = "Backend Developer is working on the server side";
         }
     }
 
     class FrontendDeveloper extends Developer {
-        protected $introduce;
+        protected string $introduce_message;
 
-        private function __construct() {
-            $this->introduce = "Front end developer is working on the client side";
+        public function __construct() {
+            $this->introduce_message = "Frontend developer is working on the client side";
         }
     }
 
     class PHP extends BackendDeveloper {
+        
         public function __construct() {
+            parent::__construct();
             $this->ime = "Mladen";
             $this->prezime = "Konkolj";
             $this->stack = ["php", "mysql"];
@@ -227,11 +233,14 @@ use Connection as GlobalConnection;
                 echo $tech;
                 echo "<br>";
             }
+            echo $this->introduce_message;
+            echo "<br>";
         }
     }
 
     class Javascript extends FrontendDeveloper {
         public function __construct() {
+            parent::__construct();
             $this->ime = "Saška";
             $this->prezime = "Despotov";
             $this->stack = ["javascript", "html"];
@@ -246,15 +255,17 @@ use Connection as GlobalConnection;
                 echo $tech;
                 echo "<br>";
             }
+            echo $this->introduce_message;
+            echo "<br>";
         }
     }
-
 
     $php_dev = new PHP();
     $php_dev->Introduce();
 
     $js_dev = new Javascript();
     $js_dev->Introduce();
+
     
     
     

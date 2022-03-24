@@ -2,3 +2,6 @@
 
 
 // Konekcija u posebnom falju, include u glavnom fajlu i funkcija se smešta u varijabilu ($connection = ConnectToDB())
+
+
+// mysqli_real_escape-string se više ne koristi, sada se koristi prepare
