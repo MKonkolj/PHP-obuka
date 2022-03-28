@@ -60,6 +60,40 @@ use Connection as GlobalConnection;
     */
     ?>
 
+    <?php 
+    
+    trait Messages {
+        public function ErrorMessage() {
+            return "Login failed";
+        }
+        public function SuccessMessage() {
+            return "Successfully logged in";
+        }
+    }
+
+    class Login {
+        public bool $isLogged;
+        use Messages;
+
+        public function __construct(){
+            $this->isLogged = boolval(rand(0, 1));
+        }
+
+        public function checkData() {
+            if($this->isLogged) {
+                return $this->SuccessMessage();
+            } {
+                return $this->ErrorMessage();
+            }
+        }
+    }
+    
+
+    $userLogin = new Login();
+    echo $userLogin->checkData();
+    
+    
+    ?>
 
     </fieldset>
     <fieldset><legend>Zadatak 6</legend>
@@ -70,9 +104,54 @@ use Connection as GlobalConnection;
     Metoda sluzi za podesavanje kilomatraze posebno za svako vozilo I vraca kilometrazu kao integer. Kilometraza treba da bude random broj izmedju 1000, I 120000.
     Za generisanje random broja koristiti rand() php funkciju.
     Name metoda ceka jedan parametar koja moze biti iskljucivo string I sluzi da bi podesili Ime za vozilo.
-    Napraviti klase MotorCycle I Car, imaju metodu Intro :
+    Napraviti klase Motorcycle I Car, imaju metodu Intro :
     Metoda izpisuje na ekran: ime vozila, kilometrazu posebno za svako vozilo.
     */
+    ?>
+
+    <?php 
+    
+    abstract class Vehicle {
+        protected string $name;
+        protected int $kilometers;
+
+        public function __construct() {
+            $this->kilometers = rand(1000, 120000);
+        }
+
+        public function setName($newName) {
+            $this->name = $newName;
+        }
+
+        abstract public function Intro();
+        // ako sam dobro razumeo, ova abstraktna funkcija nije obavezna u ovom slučaju, ovako samo obavezujemo svaki child ove klase da mora sadržati funkciju Intro
+    }
+
+    class Motorcycle extends Vehicle {
+        public function Intro() {
+            return $this->name . " (" . $this->kilometers . " km)";
+        }
+    }
+
+    class Car extends Vehicle {
+        public function Intro() {
+            return $this->name . " (" . $this->kilometers . " km)";
+        }
+    }
+
+
+    $ktm = new Motorcycle();
+    $ktm->setName("KTM");
+    echo $ktm->Intro();
+
+    echo "<br>";
+
+    $bmw = new Motorcycle();
+    $bmw->setName("BMW");
+    echo $bmw->Intro();
+    
+    
+    
     ?>
 
 
@@ -90,6 +169,46 @@ use Connection as GlobalConnection;
     */
     ?>
 
+    <?php 
+    
+    interface CarFuel {
+        public function getFuelType();
+    }
+    
+    class Diesel implements CarFuel {
+        public string $fuel_type;
+
+        public function __construct() {
+            $this->fuel_type = "diesel";
+        }
+
+        public function getFuelType() {
+            return "U Diesel sipamo " . $this->fuel_type;
+        }
+    }
+
+    class Petrol implements CarFuel {
+        public string $fuel_type;
+
+        public function __construct() {
+            $this->fuel_type = "petrol";
+        }
+
+        public function getFuelType() {
+            return "U Petrol sipamo " . $this->fuel_type;
+        }
+    }
+
+
+    $diesel = new Diesel();
+    echo $diesel->getFuelType();
+
+    echo "<br>";
+
+    $petrol = new Petrol();
+    echo $petrol->getFuelType();
+    
+    ?>
 
     </fieldset>
     <!-- ZADACI END -->
