@@ -16,6 +16,10 @@
     font-family: var(--cursive);
 }
 
+body {
+    background-color: var(--offwhite);
+}
+
 header {
     padding-inline: 2rem;
     background-color: var(--black);
@@ -30,6 +34,7 @@ h3 {
     background-color: var(--yellow);
     color: var(--black);
     font-size: 1.5rem;
+    height: 2.5rem;
     width: max-content;
 }
 
@@ -58,12 +63,56 @@ ul {
 
 button {
     outline: none;
-    border: 5px solid var(--yellow);
+    border: none;
     background-color: var(--yellow);
-    padding: .3rem;
+    padding: .5rem 1rem;
     cursor: pointer;
+    line-height: 1.4;
+    border-bottom: 3px solid var(--yellow);
+    height: min-content;
 }
 
 button:hover {
-    border: 5px solid var(--orange);
+    border-bottom: 3px solid var(--orange);
+}
+
+button:active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.forms-container {
+    padding-top: 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+    justify-items: right;
+    gap: 3rem;
+}
+
+.forms-container div:last-child {
+    justify-self: left;
+}
+
+.form-wrapper {
+    background-color: white;
+    width: 500px;
+    border-radius: 20px;
+    padding: 4rem 6rem;
+    display: grid;
+    gap: 1rem;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: .3rem;
+    height: min-content;
+}
+
+input {
+    padding: .5rem 1rem;
+}
+
+.login div {
+    height: min-content;
 }

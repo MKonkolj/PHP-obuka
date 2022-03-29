@@ -26,9 +26,11 @@
 </body>
     <main>
         <div class="forms-container">
-            <div class="form-signup">
-                <h3>SIGN UP</h3>
-                <p>Don't have an account yet? Sign up below!</p>
+            <div class="form-wrapper signup">
+                <div>
+                    <h3>SIGN UP</h3>
+                    <p>Don't have an account yet? Sign up below!</p>
+                </div>
                 <form action="includes/signup.php" method="post">
                     <input type="text" name="uid" placeholder="Username">
                     <input type="password" name="pwd" placeholder="Password">
@@ -37,9 +39,11 @@
                     <button type="submit" name="submit">SIGN UP</button>
                 </form>
             </div>
-            <div class="form-login">
-                <h3>LOGIN</h3>
-                <p>Log in to access the magic!</p>
+            <div class="form-wrapper login">
+                <div>
+                    <h3>LOGIN</h3>
+                    <p>Log in to access the magic!</p>
+                </div>
                 <form action="includes/login.php" method="post">
                     <input type="text" name="uid" placeholder="Username">
                     <input type="password" name="pwd" placeholder="Password">
